@@ -8,4 +8,5 @@ public interface Car extends HasBrand,IsMaintenance{
     default boolean isBig(){
         return false;
     }
+
 }
