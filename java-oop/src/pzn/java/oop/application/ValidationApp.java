@@ -1,6 +1,7 @@
 package pzn.java.oop.application;
 
 import pzn.java.oop.data.LoginRequest;
+import pzn.java.oop.error.BlankException;
 import pzn.java.oop.error.ValidationException;
 import pzn.java.oop.utils.ValidationUtil;
 
@@ -12,6 +13,14 @@ public class ValidationApp {
             ValidationUtil.validate(loginRequest);
         }catch(ValidationException | NullPointerException e){
             System.out.println("Error "+e.getMessage());
+        }finally {
+            System.out.println("Finish");
+        }
+
+        try{
+            ValidationUtil.validateRuntime(loginRequest);
+        }catch (BlankException | NullPointerException e ){
+            System.out.println("Error : "+e);
         }finally {
             System.out.println("Finish");
         }
