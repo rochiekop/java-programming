@@ -1,7 +1,7 @@
 package view;
 
 public class TodoListView {
-    public void showTodoList(){
+    public void displayTodoList(){
 
     }
 
