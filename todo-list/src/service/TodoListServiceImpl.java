@@ -26,12 +26,21 @@ public class TodoListServiceImpl implements TodoListService{
     }
 
     @Override
-    public void displayTodoList(String todo) {
+    public void addTodoList(String todo) {
+        Todolist todolist = new Todolist(todo);
+        todoListRepository.add(todolist);
+
+        System.out.println("Succesfully add todolist : "+todo);
 
     }
 
     @Override
     public void removeTodoList(int index) {
-
+        boolean isSuccess = todoListRepository.remove(index);
+        if(isSuccess){
+            System.out.println("Success delete todo list :" +index);
+        }else {
+            System.out.println("Failed delete todo list :" +index);
+        }
     }
 }

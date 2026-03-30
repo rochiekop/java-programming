@@ -8,7 +8,7 @@ import service.TodoListServiceImpl;
 
 public class TodoListServiceTest {
     public static void main(String[] args) {
-        testShowTodoList();
+        testRemoveTodoList();
 
     }
 
@@ -22,6 +22,38 @@ public class TodoListServiceTest {
         // TODO: 3/29/2026
         todoListService.displayTodoList();
 
+    }
+
+    public static void testAddTodoList(){
+        TodoListRepository todoListRepository = new TodoListRespositoryImpl();
+        TodoListService todoListService = new TodoListServiceImpl(todoListRepository);
+        todoListService.addTodoList("Java Basic");
+        todoListService.addTodoList("Java Standard Clasess");
+        todoListService.addTodoList("Java Todo List");
+
+        /**
+         * Display
+         */
+
+        todoListService.displayTodoList();
+    }
+
+
+    public static void testRemoveTodoList(){
+        TodoListRepository todoListRepository = new TodoListRespositoryImpl();
+        TodoListService todoListService = new TodoListServiceImpl(todoListRepository);
+
+        todoListService.addTodoList("Java Basic");
+        todoListService.addTodoList("Java Standard Clasess");
+        todoListService.addTodoList("Java Todo List");
+
+        todoListService.removeTodoList(2);
+
+        /**
+         * Display
+         */
+
+        todoListService.displayTodoList();
     }
 
 }

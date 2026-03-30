@@ -4,7 +4,7 @@ package service;
 public interface TodoListService {
     void displayTodoList();
 
-    void displayTodoList(String todo);
+    void addTodoList(String todo);
 
     void removeTodoList(int index);
 }
