@@ -5,11 +5,12 @@ import repository.TodoListRepository;
 import repository.TodoListRespositoryImpl;
 import service.TodoListService;
 import service.TodoListServiceImpl;
+import view.TodoListView;
 
 public class TodoListServiceTest {
     public static void main(String[] args) {
+        //testAddTodoList();
         testRemoveTodoList();
-
     }
 
     public static void testShowTodoList(){
@@ -25,11 +26,19 @@ public class TodoListServiceTest {
     }
 
     public static void testAddTodoList(){
+
         TodoListRepository todoListRepository = new TodoListRespositoryImpl();
         TodoListService todoListService = new TodoListServiceImpl(todoListRepository);
+        TodoListView todoListView = new TodoListView(todoListService);
+
         todoListService.addTodoList("Java Basic");
         todoListService.addTodoList("Java Standard Clasess");
         todoListService.addTodoList("Java Todo List");
+
+        //todoListService.removeTodoList(2);
+
+        todoListView.addTodoList();
+
 
         /**
          * Display
@@ -42,19 +51,20 @@ public class TodoListServiceTest {
     public static void testRemoveTodoList(){
         TodoListRepository todoListRepository = new TodoListRespositoryImpl();
         TodoListService todoListService = new TodoListServiceImpl(todoListRepository);
+        TodoListView todoListView  = new TodoListView(todoListService);
 
         todoListService.addTodoList("Java Basic");
         todoListService.addTodoList("Java Standard Clasess");
         todoListService.addTodoList("Java Todo List");
 
-        todoListService.removeTodoList(2);
-
         /**
          * Display
          */
-
+        todoListService.displayTodoList();
+        todoListView.removeTodoList();
         todoListService.displayTodoList();
     }
+
 
 }
 
