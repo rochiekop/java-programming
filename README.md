@@ -25,7 +25,10 @@ java-programming/
 │
 ├── basic-java/            
 ├── java-oop/               
-├── java-standard-classes/  
+├── java-standard-classes/
+├── java-generic/ 
+├── java-collection/
+├── todo-list/ 
 └── README.md
 ```
 
